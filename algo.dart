@@ -4,7 +4,7 @@
 main() {
   List<int> nums = [2, 7, 66, 15];
 
-  int target = 73;
+  int target = 9;
   print(algorithm1(nums, target));
 }
 
