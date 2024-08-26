@@ -1,22 +1,22 @@
 name: Dart CI
 on:
   push:
-      branches:
-            - main
-              pull_request:
-                  branches:
-                        - main
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   build:
-      runs-on: ubuntu-latest    
-      steps:    
-      - name: Checkout code      
-        uses: actions/checkout@v2    
-      - name: Set up Dart      
-        uses: dart-lang/setup-dart@v1      
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
       - name: Install dependencies
-        run: dart pub get    
-      - name: Run Dart program      
+        run: dart pub get
+      - name: Run Dart program
         run: dart run path/to/your_main_file.dart
