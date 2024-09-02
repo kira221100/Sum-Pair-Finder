@@ -2,10 +2,27 @@
 
 //And if we use A list instead of a map to store the seenNumbers in the iteration(forLoop), the the complexity would still be O(n^2) because of the nested loop to check the current number in the List we use to store the already iterated element.
 main() {
-  List<int> nums = [2, 7, 66, 15];
+  List<List> nums = [
+    [2, 7, 5, 4],
+    [2, 7, 5, 4],
+    [2, 5, 0, 0],
+    [2, 1, 5, 0]
+  ];
+  int target = 9;
 
-  int target = 81;
-  print(algorithm1(nums, target));
+  for (int i = 0; i < nums.length; i++) {
+    print('Output of Array ${nums[i]} : ${algorithm1(nums[i], target)} \n');
+  }
+
+  // nums.forEach((num) {
+  //   print(algorithm1(num, target));
+  // });
+
+  // for (List num in nums) {
+  //   print(algorithm1(num, target));
+  // }
+
+  // print(algorithm1(nums, target));
 }
 
 List<dynamic> algorithm1(List<dynamic> nums, int target) {
@@ -17,6 +34,7 @@ List<dynamic> algorithm1(List<dynamic> nums, int target) {
 
     if (already_iteratedNumbers.containsKey(remaining)) {
       // return [remaining, nums[i]];
+
       return [already_iteratedNumbers[remaining], i];
     }
 
@@ -33,7 +51,7 @@ List<dynamic> algorithm1(List<dynamic> nums, int target) {
 //I Had major help for this method.....
 //Need to sort beforehand....
 
-List<dynamic> algorithm(List<int> nums, int target) {
+List<dynamic> algorithm(List<dynamic> nums, int target) {
   List<int> answerList = [];
   int minIndex = 0;
   int maxIndex = nums.length - 1;
